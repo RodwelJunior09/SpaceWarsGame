@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -132,6 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f940b033605ae4c890751718332303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddle: {fileID: 0}
+  paddle: {fileID: 5444497449094203746, guid: 2600993f85bd3b94493d9eaa43d414c6, type: 3}
   launchX: -3
   launchY: 15
+  audioSources:
+  - {fileID: 8300000, guid: caf1341ee2fbc4e0aa22d9f078886a16, type: 3}
+  - {fileID: 8300000, guid: 188b26a528bf34948a42907699761d9a, type: 3}
+  - {fileID: 8300000, guid: 5f81b4d7193824631b6efa0c45f84d02, type: 3}
+  - {fileID: 8300000, guid: a454e566f01e04a9783a16a1dd59e002, type: 3}

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
@@ -9,12 +7,33 @@ public class Paddle : MonoBehaviour
     [SerializeField] float minScreenSize;
     [SerializeField] float maxScreenSize;
 
+    //Cache variables
+    Ball ball;
+    GameStatus gameStatus;
+
+    private void Start()
+    {
+        ball = FindObjectOfType<Ball>();
+        gameStatus = FindObjectOfType<GameStatus>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        var xMouse = Input.mousePosition.x / Screen.width * screenWidthUnits;
         Vector2 movement = new Vector2(transform.position.x, transform.position.y);
-        movement.x = Mathf.Clamp(xMouse, minScreenSize, maxScreenSize);
+        movement.x = Mathf.Clamp(GetXpos(), minScreenSize, maxScreenSize);
         transform.position = movement;
+    }
+
+    private float GetXpos()
+    {
+        if (gameStatus.isAutoPlayedEnabled())
+        {
+            return ball.transform.position.x;
+        }
+        else
+        {
+            return Input.mousePosition.x / Screen.width * screenWidthUnits;
+        }
     }
 }

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneFlow : MonoBehaviour
 {
+    GameStatus gameStatus;
+
     public void LoadStartScene()
     {
         SceneManager.LoadScene(0);
+        gameStatus = FindObjectOfType<GameStatus>();
+        gameStatus.ResetGame();
     }
 
     public void LoadNextScene()
